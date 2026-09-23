@@ -1,9 +1,9 @@
 from django import forms
-from models import Post
+from blog.models import Post
 
 class PostForm(forms.ModelForm):
     class Meta:
-        model = Post()
+        model = Post
         fields = ('title', 'content', 'image', 'is_published', 'price')
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Enter the title opf your post', 'maxlength': 120}),
