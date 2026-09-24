@@ -1,63 +1,53 @@
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+}
+
+#superheader {
+  font-size: 49px;
+  text-align: center;
+  margin: 55px 0px 50px 0px;
 }
 
 :root {
   --charcoal-color: #36494f;
+  --button-bgcolor: #1e292c;
+  --button-hover-bgcolor: #151c1e;
 }
 
-h1 {
-  text-align: center;
-  margin-top: 50px;
-}
-
-nav {
-  display: flex;
-  width: 100%;
+#posts {
+  display: grid;
+  grid-template-columns: auto auto auto;
   align-items: center;
-  justify-content: center;
-  gap: 25px;
-  padding: 10px;
-  background-color: #efefef;
+  justify-content: space-around;
 }
-
-.absolute {
-  position: absolute;
-  padding: 7px;
-  background-color: var(--charcoal-color);
-  color: white;
-  border-radius: 5px;
-  font-size: 14px;
-  white-space: nowrap;
-  z-index: 10;
-  top: 150%;
-  left: 50%;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(-50%);
-  transition:
-    opacity 300ms ease,
-    top 300ms ease;
-}
-
-a:hover .absolute {
-  top: 130%;
-  opacity: 1;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-  font-size: 22px;
-  transition: color 200ms linear;
-  position: relative;
-  display: inline-flex;
+.post {
+  display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 20px 45px;
+  background-color: var(--charcoal-color);
+  border-radius: 10px;
+  margin-bottom: 35px;
+  color: #fff;
+  transition: box-shadow 600ms ease;
 }
-a:hover {
-  color: #f00;
+.post:hover {
+  box-shadow: 13px 15px 22px #000;
+}
+.post h1 {
+  margin-bottom: 10px;
+}
+
+.aButton {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  background-color: var(--button-bgcolor);
+  border-radius: 5px;
+  transition: background-color 150ms linear;
+}
+.aButton:hover {
+  background-color: var(--button-hover-bgcolor);
 }

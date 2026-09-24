@@ -1,0 +1,32 @@
+* {
+  user-select: none;
+}
+
+:root {
+  --charcoal-color: #36494f;
+}
+
+#post {
+  text-align: center;
+  margin: 10px auto;
+  width: 1000px;
+  background-color: var(--charcoal-color);
+  padding: 25px 35px;
+  border-radius: 10px;
+  color: #fff;
+}
+#post h1 {
+  margin-bottom: 30px;
+  font-size: 43px;
+}
+#post p,
+span {
+  font-size: 22px;
+}
+#post p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+#post span {
+  display: block;
+}

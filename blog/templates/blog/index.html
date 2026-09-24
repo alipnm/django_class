@@ -1,7 +1,17 @@
 {% extends "blog/base.html" %} 
+{% load static %}
 
 {% block title %}Home page{% endblock title %}
 
+{% block add_static %}
+<link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+{% endblock add_static %}
+
 {% block content %} 
-<h1>Welcome To My Site!</h1> 
+<h1 id="superheader">Welcome To My Site!</h1>
+<div id="posts"></div>
 {% endblock content %}
+
+{% block script %}
+<script src="{% static 'blog/js/script.js' %}"></script>
+{% endblock script %}
