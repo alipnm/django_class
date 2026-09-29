@@ -1,20 +1,22 @@
-{% extends "blog/base.html" %}
+{% extends 'blog/base.html' %}
 {% load static %}
 
-{% block title %}{{ post.title }}{% endblock title %}
+{% block title %}
+  {{ post.title }}
+{% endblock %}
 
 {% block add_static %}
-<link rel="stylesheet" href="{% static 'blog/css/details.css' %}">
-{% endblock add_static %}
+  <link rel="stylesheet" href="{% static 'blog/css/details.css' %}" />
+{% endblock %}
 
 {% block content %}
-<div id="post">
+  <div id="post">
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
     {% if post.image %}
-    <img src="{{ post.image.url }}" alt="">
+      <img src="{{ post.image.url }}" alt="" />
     {% endif %}
     <span>Price: {{ post.price }}$</span>
     <span>Published By: {{ post.publisher }}</span>
-</div>
-{% endblock content %}
+  </div>
+{% endblock %}

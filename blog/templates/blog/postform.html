@@ -1,0 +1,50 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}
+  Create post
+{% endblock %}
+
+{% block add_static %}
+  <link rel="stylesheet" href="{% static 'blog/css/postform.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <h1 id="superheader">Create Post</h1>
+  <form method="post" enctype="multipart/form-data" autocomplete="off">
+    {% csrf_token %}
+    <div class="title">
+      <label for="title">Title:</label>
+      {{ form.title }}
+      <div class="errors">
+        {% if form.title.errors %}
+          {{ form.title.errors }}
+        {% endif %}
+      </div>
+    </div>
+    <div class="content">
+      {{ form.content }}
+      <div class="errors">
+        {% if form.content.errors %}
+          {{ form.content.errors }}
+        {% endif %}
+      </div>
+    </div>
+    {{ form.image }}
+    {{ form.price }}
+    <div class="publisher">
+      <label for="publisher">Publisher:</label>
+      {{ form.publisher }}
+      <div class="errors">
+        {% if form.publisher.errors %}
+          {{ form.publisher.errors }}
+        {% endif %}
+      </div>
+    </div>
+    <button type="submit">Add</button>
+  </form>
+{% endblock %}
+
+{% block script %}
+  <script src="{% static 'blog/js/postform.js' %}"></script>
+{% endblock %}

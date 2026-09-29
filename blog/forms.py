@@ -5,10 +5,16 @@ from blog.models import Post
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ("title", "content", "image", "price")
+        fields = ("title", "content", "image", "price", "publisher")
         widgets = {
-            "title": forms.TextInput(attrs={"placeholder": "Enter the title opf your post", "maxlength": 120}),
+            "title": forms.TextInput(
+                attrs={"placeholder": "Enter the title", "maxlength": 120, "id": "title", "name": "title"}
+            ),
             "content": forms.Textarea(attrs={"placeholder": "Enter the content"}),
+            "price": forms.NumberInput(attrs={"id": "price"}),
+            "publisher": forms.TextInput(
+                attrs={"placeholder": "Enter the publisher", "id": "publisher", "maxlength": 100}
+            ),
         }
 
     def clean_title(self):
@@ -26,3 +32,10 @@ class PostForm(forms.ModelForm):
             raise forms.ValidationError("Too short content.")
 
         return content.strip()
+
+    def clean_publisher(self):
+        pub = self.cleaned_data["publisher"].strip()
+        if len(pub) <= 2:
+            raise forms.ValidationError("Too short publisher name.")
+
+        return pub

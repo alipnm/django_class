@@ -36,5 +36,10 @@ def create_post(request):
         if post_form.is_valid():
             post_save = post_form.save(commit=False)
             post_save.author = request.user
+            post_save.save()
+
+            return redirect("/home")
     else:
-        pass
+        post_form = PostForm()
+
+    return render(request, "blog/postform.html", context={"form": post_form})
