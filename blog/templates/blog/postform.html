@@ -41,7 +41,11 @@
         {% endif %}
       </div>
     </div>
-    <button type="submit">Add</button>
+    <div class="is_published">
+      <label for="id_is_published">Publish:</label>
+      {{ form.is_published }}
+    </div>
+    <button type="submit" id="submitBtn">Add</button>
   </form>
 {% endblock %}
 

@@ -5,7 +5,7 @@ from blog.models import Post
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ("title", "content", "image", "price", "publisher")
+        fields = ("title", "content", "image", "price", "publisher", "is_published")
         widgets = {
             "title": forms.TextInput(
                 attrs={"placeholder": "Enter the title", "maxlength": 120, "id": "title", "name": "title"}
