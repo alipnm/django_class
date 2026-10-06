@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home_intorduce, redirect_home, give_posts, details, create_post
+from .views import home_intorduce, redirect_home, give_posts, details, create_post, update_post
 
 app_name = "blog"
 
@@ -9,4 +9,5 @@ urlpatterns = [
     path("api/posts", give_posts, name="give_published_posts"),
     path("posts/<int:id>", details, name="post_details"),
     path("posts/create", create_post, name="create_post"),
+    path("posts/update/<int:pk>", update_post, name="update_post"),
 ]

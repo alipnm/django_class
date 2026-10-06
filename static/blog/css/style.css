@@ -40,6 +40,10 @@
   margin-bottom: 10px;
 }
 
+.aButtonContainer {
+  margin: 20px 0 5px 0;
+}
+
 .aButton {
   text-decoration: none;
   color: #fff;

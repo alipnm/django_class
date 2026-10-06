@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from blog.forms import PostForm
 from blog.models import Post
@@ -43,3 +43,16 @@ def create_post(request):
         post_form = PostForm()
 
     return render(request, "blog/postform.html", context={"form": post_form})
+
+
+def update_post(request, pk):
+    post = get_object_or_404(Post, pk=pk, author=request.user)
+    if request.method == "POST":
+        pass
+    else:
+        form = PostForm(
+            request.POST,
+            request.FILES,
+            instance=post
+        )
+    return render(request, "blog/postform.html", {"form": form})
