@@ -11,7 +11,8 @@ def home_intorduce(request):
 
 
 def give_posts(request):
-    posts = list(Post.objects.filter(is_published=True).values("id", "title", "price", "publisher"))
+    posts = list(Post.objects.filter(is_published=True).values(
+        "id", "title", "price", "publisher"))
 
     return JsonResponse(posts, safe=False, encoder=DjangoJSONEncoder)
 
@@ -50,9 +51,5 @@ def update_post(request, pk):
     if request.method == "POST":
         pass
     else:
-        form = PostForm(
-            request.POST,
-            request.FILES,
-            instance=post
-        )
+        form = PostForm(instance=post)
     return render(request, "blog/postform.html", {"form": form})
