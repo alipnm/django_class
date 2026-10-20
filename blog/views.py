@@ -47,9 +47,14 @@ def create_post(request):
 
 
 def update_post(request, pk):
-    post = get_object_or_404(Post, pk=pk, author=request.user)
+    post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        pass
+        form = PostForm(request.POST, request.FILES, instance=post)
+        
+        if form.is_valid():
+            form.save()
+            
+            return redirect("blog:post_details", id=post.id)
     else:
         form = PostForm(instance=post)
     return render(request, "blog/postform.html", {"form": form})

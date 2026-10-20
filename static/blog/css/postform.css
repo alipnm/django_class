@@ -55,7 +55,7 @@ input {
   color: #fff;
   border-radius: 2px;
   resize: vertical;
-  padding: 3px;
+  padding: 10px;
 }
 textarea:focus-visible,
 input:focus-visible {

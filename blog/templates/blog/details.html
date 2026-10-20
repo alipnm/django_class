@@ -14,7 +14,7 @@
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
     {% if post.image %}
-      <img src="{{ post.image.url }}" alt="" />
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" />
     {% endif %}
     <span>Price: {{ post.price }}$</span>
     <span>Published By: {{ post.publisher }}</span>
