@@ -11,6 +11,15 @@
 
 {% block content %}
   <h1 id="superheader">Welcome To My Site!</h1>
+  <div id="searchbar">
+    <input type="text" name="search" id="searchInput" placeholder="Search Posts..." />
+    <button id="searchButton">
+      <i class="fa-duotone fa-solid fa-magnifying-glass"></i>
+      <span>Search</span>
+    </button>
+    <button id="showAll" class="button">Show All Posts</button>
+  </div>
+  <h1 id="searchResult"></h1>
   <div id="posts"></div>
 {% endblock %}
 

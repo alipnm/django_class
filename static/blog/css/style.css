@@ -12,6 +12,7 @@
   --charcoal-color: #36494f;
   --button-bgcolor: #1e292c;
   --button-hover-bgcolor: #151c1e;
+  --charcoal-color-input: #697f7f;
 }
 
 #posts {
@@ -54,4 +55,61 @@
 }
 .aButton:hover {
   background-color: var(--button-hover-bgcolor);
+}
+
+.button {
+  padding: 7px;
+  font-size: 18px;
+  border: none;
+  background-color: var(--button-bgcolor);
+  border-radius: 5px;
+  color: #fff;
+  transition: all 150ms linear;
+  cursor: pointer;
+  /* margin-left: 50%; */
+  /* transform: translateX(-50%); */
+}
+.button:hover {
+  background-color: var(--button-hover-bgcolor);
+}
+
+#searchbar {
+  margin: 75px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+#searchbar > input {
+  width: 600px;
+  background-color: var(--charcoal-color-input);
+  border: none;
+  font-size: 20px;
+  padding: 7px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: default;
+}
+#searchbar > input:focus-visible {
+  outline: var(--button-hover-bgcolor) 3px solid;
+}
+
+#searchbar > button {
+  padding: 7px;
+  font-size: 18px;
+  border: none;
+  background-color: var(--button-bgcolor);
+  border-radius: 5px;
+  color: #fff;
+  transition: all 150ms linear;
+  cursor: pointer;
+}
+#searchbar > button:hover {
+  background-color: var(--button-hover-bgcolor);
+}
+
+#searchResult {
+  text-align: center;
+  font-size: 37px;
+  margin-bottom: 120px;
 }

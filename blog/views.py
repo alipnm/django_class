@@ -17,6 +17,17 @@ def give_posts(request):
     return JsonResponse(posts, safe=False, encoder=DjangoJSONEncoder)
 
 
+def search_posts(request):
+    query = request.GET.get('title', '')
+    if query:
+        posts = list(Post.objects.filter(
+            is_published=True, title__icontains=query).values('id', 'title', 'price', 'publisher'))
+    else:
+        posts = []
+
+    return JsonResponse(posts, safe=False, encoder=DjangoJSONEncoder)
+
+
 def details(request, id):
     post = Post.objects.get(id=id)
     return render(request, "blog/details.html", context={"post": post})
@@ -50,10 +61,10 @@ def update_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
-        
+
         if form.is_valid():
             form.save()
-            
+
             return redirect("blog:post_details", id=post.id)
     else:
         form = PostForm(instance=post)
